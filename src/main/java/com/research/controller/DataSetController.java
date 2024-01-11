@@ -1,14 +1,14 @@
 package com.research.controller;
 
 import com.research.pojo.DataSet;
+import com.research.pojo.PageBean;
 import com.research.pojo.Result;
 import com.research.service.DataSetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/dataSet")
@@ -23,4 +23,28 @@ public class DataSetController {
         return Result.success();
     }
 
+    @GetMapping
+    public Result<PageBean<DataSet>> list(
+            Integer pageNum,
+            Integer pageSize,
+            @RequestParam(required = false) Integer categoryId
+    ) {
+        PageBean<DataSet> pb = dataSetService.list(pageNum,pageSize,categoryId);
+        return Result.success(pb);
+    }
+
+    @GetMapping("/search")
+    public List<DataSet> searchArticles(String keyword) {return dataSetService.searchDataSets(keyword);}
+
+    @PutMapping
+    public Result update(@RequestBody DataSet dataSet) {
+        dataSetService.update(dataSet);
+        return Result.success();
+    }
+
+    @DeleteMapping
+    public Result delete(Integer id) {
+        dataSetService.deleteById(id);
+        return Result.success();
+    }
 }

@@ -21,11 +21,13 @@ public interface ArticleMapper {
             "where title like concat('%',#{keyword},'%') or key_words like concat('%',#{keyword},'%') or category.category_name like concat('%',#{keyword},'%'))")
     List<Article> searchArticles(String keyword);
 
+    //更改
     @Update("update article set title=#{title},from_where=#{fromWhere},key_words=#{keyWords},category_id=#{categoryId}," +
             "content=#{content},instruction=#{instruction},example_data_set=#{exampleDataSet},example_query=#{exampleQuery}," +
             "state = #{state},create_user=#{createUser},update_time=#{updateTime} where id=#{id}")
     void update(Article article);
 
+    //删除
     @Delete("delete from article where id=#{id}")
-    void deleteById1(Integer id);
+    void deleteById(Integer id);
 }

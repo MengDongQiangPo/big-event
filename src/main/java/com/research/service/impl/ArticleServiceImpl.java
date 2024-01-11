@@ -67,6 +67,6 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void deleteById(Integer id) {
-        articleMapper.deleteById1(id);
+        articleMapper.deleteById(id);
     }
 }

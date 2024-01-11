@@ -36,9 +36,7 @@ public class ArticleController {
     }
 
     @GetMapping("/search")
-    public List<Article> searchArticles(String keyword) {
-        return articleService.searchArticles(keyword);
-    }
+    public List<Article> searchArticles(String keyword) {return articleService.searchArticles(keyword);}
 
     @PutMapping
     public Result update(@RequestBody Article article) {
