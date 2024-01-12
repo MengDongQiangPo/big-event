@@ -15,10 +15,10 @@ public class Demo {
         String endpoint = "https://oss-cn-beijing.aliyuncs.com";
         // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
         //EnvironmentVariableCredentialsProvider credentialsProvider = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();
-        String ACCESS_KEY_ID="LTAI5tDo5L5Xzx8vaHRxyFFB";
-        String ACCESS_KEY_SECRET="7Y68TzPJUzEZLslsmbvyENm5get9eZ";
+        String ACCESS_KEY_ID="LTAI5tBHHYUVovJhPYs3L9dT";
+        String ACCESS_KEY_SECRET="ConVokgsoERVe9B7RGxdD7aN6KJmVr";
         // 填写Bucket名称，例如examplebucket。
-        String bucketName = "big-event";
+        String bucketName = "sau-big-event";
         // 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
         String objectName = "001.png";
 

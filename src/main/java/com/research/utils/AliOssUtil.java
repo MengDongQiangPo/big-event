@@ -16,10 +16,10 @@ public class AliOssUtil {
     private static final String ENDPOINT = "https://oss-cn-beijing.aliyuncs.com";
     // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
     //EnvironmentVariableCredentialsProvider credentialsProvider = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();
-    private static final String ACCESS_KEY_ID="LTAI5tDo5L5Xzx8vaHRxyFFB";
-    private static final String ACCESS_KEY_SECRET="7Y68TzPJUzEZLslsmbvyENm5get9eZ";
+    private static final String ACCESS_KEY_ID="LTAI5tBHHYUVovJhPYs3L9dT";
+    private static final String ACCESS_KEY_SECRET="ConVokgsoERVe9B7RGxdD7aN6KJmVr";
     // 填写Bucket名称，例如examplebucket。
-    private static final String BUCKET_NAME = "big-event";
+    private static final String BUCKET_NAME = "sau-big-event";
 
     public static String uploadFile(String objectName, InputStream in) throws Exception {
 
