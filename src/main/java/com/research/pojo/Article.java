@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class Article {
     private Integer id;//主键ID
     @NotEmpty
-    @Pattern(regexp = "^\\S{1,50}$")
+    @Pattern(regexp = "^\\S{1,100}$")
     private String title;//算法名称
     @NotEmpty
     private String fromWhere;//出处

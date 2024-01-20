@@ -14,8 +14,6 @@
             <if test="state!=null">
                 and state=#{state}
             </if>
-
-            and create_user=#{userId}
         </where>
     </select>
 

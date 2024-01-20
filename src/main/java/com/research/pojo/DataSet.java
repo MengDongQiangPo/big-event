@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class DataSet {
     private Integer id;//主键ID
     @NotEmpty
-    @Pattern(regexp = "^\\S{1,50}$")
+    @Pattern(regexp = "^\\S{1,100}$")
     private String title;//数据集名称
     @NotEmpty
     private String content;//数据集描述

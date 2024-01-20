@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
     //根据用户名查询用户
@@ -26,6 +28,9 @@ public interface UserMapper {
     @Update("update user set password=#{md5String},update_time=now() where id=#{id}")
     void updatePwd(String md5String, Integer id);
 
-    @Update("update user set user_force = 1,update_time=now() where id=#{id}")
-    void updateForce(User user);
+    @Update("update user set user_force = 1,update_time=now() where id=#{ID}")
+    void updateForce(Integer ID);
+
+    @Select("select * from user")
+    List<User> list();
 }

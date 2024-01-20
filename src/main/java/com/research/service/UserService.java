@@ -2,6 +2,8 @@ package com.research.service;
 
 import com.research.pojo.User;
 
+import java.util.List;
+
 public interface UserService {
     //根据用户名查询用户
     User findByUserName(String username);
@@ -19,5 +21,8 @@ public interface UserService {
     void updatePwd(String newPwd);
 
     //修改用户权限
-    void updateForce(User user);
+    void updateForce(Integer ID);
+
+    //获取用户列表
+    List<User> list();
 }

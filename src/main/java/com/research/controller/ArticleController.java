@@ -36,7 +36,10 @@ public class ArticleController {
     }
 
     @GetMapping("/search")
-    public List<Article> searchArticles(String keyword) {return articleService.searchArticles(keyword);}
+    public Result<PageBean<Article>> searchArticles(@RequestBody String keyword, Integer pageNum, Integer pageSize) {
+        PageBean<Article> pb = articleService.searchArticles(keyword,pageNum,pageSize);
+        return Result.success(pb);
+    }
 
     @PutMapping
     public Result update(@RequestBody Article article) {

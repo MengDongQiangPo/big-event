@@ -13,7 +13,7 @@ public interface DataSetMapper {
     void add(DataSet dataSet);
 
 
-    List<DataSet> list(Integer userId, Integer categoryId);
+    List<DataSet> list(Integer categoryId);
 
     //根据关键词查询
     @Select("select * from data_set where id = (select data_set.id "+

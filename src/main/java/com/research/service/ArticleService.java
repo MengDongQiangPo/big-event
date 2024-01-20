@@ -13,7 +13,7 @@ public interface ArticleService {
     PageBean<Article> list(Integer pageNum, Integer pageSize, Integer categoryId, String state);
 
     //关键字检索
-    List<Article> searchArticles(String keyword);
+    PageBean<Article> searchArticles(String keyword, Integer pageNum, Integer pageSize);
 
     //更改算法信息
     void update(Article article);

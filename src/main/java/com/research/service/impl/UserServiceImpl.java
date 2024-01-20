@@ -7,10 +7,13 @@ import com.research.utils.Md5Util;
 import com.research.utils.ThreadLocalUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+//import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
+//@Transactional
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -50,9 +53,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateForce(User user) {
-        user.setUpdateTime(LocalDateTime.now());
-        userMapper.updateForce(user);
+    public List<User> list() {
+        return userMapper.list();
+    }
+
+    @Override
+    public void updateForce(Integer ID) {
+        //user.setUpdateTime(LocalDateTime.now());
+        userMapper.updateForce(ID);
     }
 
 

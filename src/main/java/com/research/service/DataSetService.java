@@ -13,7 +13,7 @@ public interface DataSetService {
     PageBean<DataSet> list(Integer pageNum, Integer pageSize, Integer categoryId);
 
     //关键字检索
-    List<DataSet> searchDataSets(String keyword);
+    PageBean<DataSet> searchDataSets(String keyword, Integer pageNum, Integer pageSize);
 
     //更改数据集信息
     void update(DataSet dataSet);

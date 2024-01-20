@@ -34,7 +34,10 @@ public class DataSetController {
     }
 
     @GetMapping("/search")
-    public List<DataSet> searchArticles(String keyword) {return dataSetService.searchDataSets(keyword);}
+    public Result<PageBean<DataSet>> searchDataSets(@RequestBody String keyword,  Integer pageNum, Integer pageSize) {
+        PageBean<DataSet> pb = dataSetService.searchDataSets(keyword,pageNum,pageSize);
+        return Result.success(pb);
+    }
 
     @PutMapping
     public Result update(@RequestBody DataSet dataSet) {

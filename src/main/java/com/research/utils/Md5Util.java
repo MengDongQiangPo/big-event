@@ -28,7 +28,10 @@ public class Md5Util {
      * @return
      */
     public static String getMD5String(String s) {
-        return getMD5String(s.getBytes());
+
+        //转码错误，用明文
+        //return getMD5String(s.getBytes());
+        return s;
     }
 
     /**

@@ -16,6 +16,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -55,7 +56,8 @@ public class UserController {
         }
 
         //判断密码是否正确  loginUser对象中的password是密文
-        if (Md5Util.getMD5String(password).equals(loginUser.getPassword())) {
+        //if (Md5Util.getMD5String(password).equals(loginUser.getPassword())) {
+        if (password.equals(loginUser.getPassword())) {
             //登录成功
             Map<String, Object> claims = new HashMap<>();
             claims.put("id", loginUser.getId());
@@ -125,10 +127,17 @@ public class UserController {
         return Result.success();
     }
 
+    @GetMapping("/list")
+    public Result<List<User>> list() {
+        List<User> us = userService.list();
+        return Result.success(us);
+    }
+
     @PutMapping("/updateForce")
-    public Result updateForce(@RequestBody @Validated User user) {
-        userService.updateForce(user);
+    public Result updateForce(@RequestBody @Validated Integer ID) {
+        userService.updateForce(ID);
         return Result.success();
     }
+
 
 }

@@ -41,12 +41,9 @@ public class DataSetServiceImpl implements DataSetService {
         //2.开启分页查询 PageHelper
         PageHelper.startPage(pageNum,pageSize);
 
-        //3.调用mapper
-        Map<String,Object> map = ThreadLocalUtil.get();
-        Integer userId = (Integer) map.get("id");
-        List<DataSet> as = dataSetMapper.list(userId,categoryId);
+        List<DataSet> ds = dataSetMapper.list(categoryId);
         //Page中提供了方法,可以获取PageHelper分页查询后 得到的总记录条数和当前页数据
-        Page<DataSet> p = (Page<DataSet>) as;
+        Page<DataSet> p = (Page<DataSet>) ds;
 
         //把数据填充到PageBean对象中
         pb.setTotal(p.getTotal());
@@ -55,8 +52,20 @@ public class DataSetServiceImpl implements DataSetService {
     }
 
     @Override
-    public List<DataSet> searchDataSets(String keyword) {
-        return dataSetMapper.searchDataSets(keyword);
+    public PageBean<DataSet> searchDataSets(String keyword, Integer pageNum, Integer pageSize) {
+        //1.创建PageBean对象
+        PageBean<DataSet> pb = new PageBean<>();
+
+        //2.开启分页查询 PageHelper
+        PageHelper.startPage(pageNum,pageSize);
+
+        List<DataSet> ds = dataSetMapper.searchDataSets(keyword);
+        Page<DataSet> p = (Page<DataSet>) ds;
+
+        //把数据填充到PageBean对象中
+        pb.setTotal(p.getTotal());
+        pb.setItems(p.getResult());
+        return pb;
     }
 
     @Override

@@ -14,7 +14,8 @@ public interface CategoryMapper {
     void add(Category category);
 
     //查询所有
-    @Select("select * from category where create_user = #{userId}")
+    //@Select("select * from category where create_user = #{userId}")
+    @Select("select * from category")
     List<Category> list(Integer userId);
 
     //根据id查询

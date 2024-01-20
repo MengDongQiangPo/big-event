@@ -13,7 +13,7 @@ public interface ArticleMapper {
     void add(Article article);
 
 
-    List<Article> list(Integer userId, Integer categoryId, String state);
+    List<Article> list(Integer categoryId, String state);
 
     //根据关键词查询
     @Select("select * from article where id = (select article.id "+
