@@ -34,7 +34,7 @@ public class DataSetController {
     }
 
     @GetMapping("/search")
-    public Result<PageBean<DataSet>> searchDataSets(@RequestBody String keyword,  Integer pageNum, Integer pageSize) {
+    public Result<PageBean<DataSet>> searchDataSets(String keyword,  Integer pageNum, Integer pageSize) {
         PageBean<DataSet> pb = dataSetService.searchDataSets(keyword,pageNum,pageSize);
         return Result.success(pb);
     }

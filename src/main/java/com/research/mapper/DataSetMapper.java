@@ -23,7 +23,7 @@ public interface DataSetMapper {
 
     //更改
     @Update("update data_set set title=#{title},content=#{content},key_words=#{keyWords},from_where=#{fromWhere},category_id=#{categoryId}," +
-            "attachment=#{attachment},instruction=#{instruction},create_user=#{createUser},update_time=#{updateTime} where id=#{id}")
+            "attachment=#{attachment},instruction=#{instruction},update_time=#{updateTime} where id=#{id}")
     void update(DataSet dataSet);
 
     //删除

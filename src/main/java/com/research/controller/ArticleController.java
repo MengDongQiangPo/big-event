@@ -36,7 +36,7 @@ public class ArticleController {
     }
 
     @GetMapping("/search")
-    public Result<PageBean<Article>> searchArticles(@RequestBody String keyword, Integer pageNum, Integer pageSize) {
+    public Result<PageBean<Article>> searchArticles( String keyword, Integer pageNum, Integer pageSize) {
         PageBean<Article> pb = articleService.searchArticles(keyword,pageNum,pageSize);
         return Result.success(pb);
     }

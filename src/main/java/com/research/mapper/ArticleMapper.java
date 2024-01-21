@@ -16,15 +16,15 @@ public interface ArticleMapper {
     List<Article> list(Integer categoryId, String state);
 
     //根据关键词查询
-    @Select("select * from article where id = (select article.id "+
-            "from article join category on article.category_id = category.id " +
+    @Select("select * from article where id = " +
+            "(select article.id from article join category on article.category_id = category.id " +
             "where title like concat('%',#{keyword},'%') or key_words like concat('%',#{keyword},'%') or category.category_name like concat('%',#{keyword},'%'))")
     List<Article> searchArticles(String keyword);
 
     //更改
     @Update("update article set title=#{title},from_where=#{fromWhere},key_words=#{keyWords},category_id=#{categoryId}," +
             "content=#{content},instruction=#{instruction},example_data_set=#{exampleDataSet},example_query=#{exampleQuery}," +
-            "state = #{state},create_user=#{createUser},update_time=#{updateTime} where id=#{id}")
+            "state = #{state},update_time=#{updateTime} where id=#{id}")
     void update(Article article);
 
     //删除
